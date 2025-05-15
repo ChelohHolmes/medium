@@ -451,3 +451,23 @@ body.dark-mode .close-button:focus {
         gap: 5px;
     }
 }
+
+.card.highlighted {
+    border-color: var(--accent-color) !important; /* Make sure it overrides other borders */
+    transform: translateY(-5px) scale(1.08);
+    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.5); /* Goldish shadow */
+}
+
+body.dark-mode .card.highlighted {
+    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.4);
+}
+
+/* Ensure player hand area is visible even if empty during interstitial for layout consistency */
+#player-hand-area.hidden-during-interstitial {
+    display: none;
+}
+
+/* Ensure selected cards area is visible even if empty during interstitial for layout consistency */
+#selected-cards-area.hidden-during-interstitial {
+    display: none;
+}
