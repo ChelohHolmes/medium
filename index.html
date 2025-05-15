@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medium - The Psychic Card Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mystery+Quest&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app-container">
+
+        <div id="start-screen" class="screen active">
+            <h1 class="game-title">Medium</h1>
+            <p class="game-description">A psychic card game of finding the connection between two words.</p>
+            <div class="button-container">
+                <button id="play-btn">Play</button>
+                <button id="instructions-btn">Read Instructions</button>
+                <button id="dark-mode-toggle">Toggle Dark Mode</button>
+                </div>
+        </div>
+
+        <div id="player-setup-screen" class="screen">
+            <h2>Player Setup</h2>
+            <div class="add-player-form">
+                <input type="text" id="player-name-input" placeholder="Enter player name">
+                <button id="add-player-btn">Add Player</button>
+            </div>
+            <h3>Players:</h3>
+            <ul id="player-list">
+                </ul>
+            <div class="game-options">
+                <h4>Game Mode:</h4>
+                <label><input type="radio" name="game-mode" value="normal" checked> Normal Way</label>
+                <label><input type="radio" name="game-mode" value="teams" disabled> Play in Teams (Coming Soon)</label>
+                <h4>Extras:</h4>
+                <label><input type="checkbox" id="use-esp-cards" disabled> Use ESP Cards (Coming Soon)</label>
+            </div>
+            <button id="start-game-btn" disabled>Start Game</button>
+            <button id="back-to-start-btn">Back to Menu</button>
+        </div>
+
+        <div id="game-screen" class="screen">
+            <div id="game-info-bar">
+                <div id="turn-info">Current Player: <span id="current-player-name-display"></span></div>
+                <div id="crystal-ball-tracker">Crystal Balls: <span id="crystal-ball-count">0</span>/3</div>
+            </div>
+
+            <div id="player-scores-area">
+                </div>
+
+            <div id="game-area">
+                <div id="player-action-prompt"></div>
+                <div id="player-hand-area" class="card-area">
+                    </div>
+                <div id="selected-cards-area" class="card-area">
+                    </div>
+                <div id="countdown-display"></div>
+                <div id="meld-controls">
+                    <button id="meld-correct-btn">Correct Meld</button>
+                    <button id="meld-incorrect-btn">Incorrect Meld</button>
+                </div>
+                <button id="continue-turn-btn">Continue</button>
+            </div>
+        </div>
+
+        <div id="game-over-screen" class="screen">
+            <h2>Game Over!</h2>
+            <h3>Final Scores:</h3>
+            <ul id="final-scores-list">
+                </ul>
+            <button id="play-again-btn">Play Again</button>
+        </div>
+
+        <div id="instructions-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>How to Play Medium</h2>
+                <p><strong>Objective:</strong> Be the team/pair with the most Mind Meld points when 3 Crystal Ball cards have been revealed.</p>
+                <p><strong>Setup (Simplified for this App):</strong></p>
+                <ul>
+                    <li>Add 3 to 8 players.</li>
+                    <li>The app selects card sets based on player count (3 sets for 3 players, 6 sets for 4-5, 9 sets for 6-7, 12 sets for 8+).</li>
+                    <li>3 Crystal Ball cards are shuffled into these selected cards.</li>
+                    <li>Each player is dealt 6 cards.</li>
+                </ul>
+                <p><strong>Gameplay:</strong></p>
+                <ul>
+                    <li>The game proceeds in turns, clockwise.</li>
+                    <li>On your turn (Player A), you will partner with the player to your right (Player B).</li>
+                    <li><strong>Player A:</strong> Clicks "Continue", then selects one card from their hand.</li>
+                    <li><strong>Player B:</strong> Is then prompted to select one card from their hand.</li>
+                    <li><strong>Mind Meld Attempt:</strong> Both selected cards are shown. A 5-second countdown begins. During this time, Player A and Player B simultaneously try to say a single word that connects the two visible cards.</li>
+                    <li>After the countdown, click "Correct Meld" if both players said the exact same word, or "Incorrect Meld" if they didn't.</li>
+                    <li><strong>Attempts & Scoring:</strong>
+                        <ul>
+                            <li>1st Attempt Correct: 5 points for the A-B pair.</li>
+                            <li>1st Attempt Incorrect: Try again (2nd attempt). Say new words to connect the *original* two cards.</li>
+                            <li>2nd Attempt Correct: 3 points.</li>
+                            <li>2nd Attempt Incorrect: Try one last time (3rd attempt).</li>
+                            <li>3rd Attempt Correct: 1 point.</li>
+                            <li>3rd Attempt Incorrect: 0 points.</li>
+                        </ul>
+                    </li>
+                    <li>After a meld attempt (successful or the 3rd incorrect), both players draw back to 6 cards. If a Crystal Ball is drawn, it's revealed, and the Crystal Ball counter goes up. The player draws another card.</li>
+                    <li>The turn then passes to the next player (Player B, who will partner with Player C).</li>
+                </ul>
+                <p><strong>Player Scores:</strong> Each player is on two "teams" – one with the player to their left, and one with the player to their right. When Player A and Player B score points, these points are added to Player A's score with their right partner (B) AND to Player B's score with their left partner (A).</p>
+                <p><strong>Game End:</strong> The game ends immediately when the 3rd Crystal Ball card is revealed. The player with the highest total score (sum of points from their left and right partnerships) wins!</p>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script></body>
+</html>
