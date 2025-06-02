@@ -26,7 +26,7 @@ This is a web-based implementation of the card game "Medium".
     * The game ends when 3 Crystal Ball cards are revealed.
     * Final scores are displayed. Each player's score is the sum of points earned with their left partner and their right partner.
 
-## Future Development Notes (from prompt)
+## Future Development Notes
 
 * Actual words for cards need to be provided and implemented.
 * Two-player variation.
